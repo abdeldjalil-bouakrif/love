@@ -23,7 +23,6 @@
       background-color: #0c0205;
     }
 
-    /* نفس الخلفية المتدرجة العميقة للحاسوب */
     body {
       background: radial-gradient(circle at 50% 30%, #2e0816 0%, #120207 70%, #080104 100%);
       display: flex;
@@ -32,7 +31,6 @@
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
-    /* الحاوية الزجاجية الداكنة المتطابقة مع الحاسوب */
     .card-wrapper {
       background: rgba(36, 10, 20, 0.65);
       border: 1px solid rgba(255, 105, 135, 0.28);
@@ -121,7 +119,6 @@
       white-space: nowrap;
     }
 
-    /* بطاقات العهود */
     .deck-container {
       position: relative;
       width: 100%;
@@ -174,7 +171,6 @@
       pointer-events: none;
     }
 
-    /* انفجار الزر والإيموجي */
     .btn-exploded {
       animation: blowUp 0.35s forwards ease-in-out !important;
       pointer-events: none;
@@ -206,7 +202,6 @@
       transform: translate(-50%, -65%) scale(0.8) !important;
     }
 
-    /* خلفية متناثرة ناعمة */
     .ambient-star {
       position: absolute;
       user-select: none;
@@ -232,49 +227,49 @@
       <h1>إلى مليكة قلبي، <span class="name">خولة</span></h1>
       
       <div class="poetry-box">
-        قد كنت أقسو وظني قادني خطأ ... فما جنيت سوى حزن بوجداني<br>
-        واليوم جئتك بالإخلاص معترفا ... أن الأمان هو التسليم للجاني
+        قد كنتُ أقْسُو وظنّي قادني خَطَأً ... فما جَنَيْتُ سوى حزنٍ بوجداني<br>
+        واليومَ جِئْتُكِ بالإخلاصِ مُعْتَرِفاً ... أنَّ الأمانَ هو التسليمُ للجاني
       </div>
 
       <p>
-        أميرتي خولة، علمني بعدك أن الغيرة والشك لم يكونا حباً، بل خوفاً أعمى آذى قلبك النقي.<br>
-        أعددت لك عهوداً حقيقية بالندم والرغبة الصادقة ألا تتكرر أخطائي.
+        أميرتي خولة، علّمني بُعْدُكِ أن الغيرة والشك لم يكونا حباً، بل خوفاً أعمى آذى قلبكِ النقي.<br>
+        أعددتُ لكِ عهوداً حقيقية بالندم والرغبة الصادقة ألا تتكرر أخطائي.
       </p>
 
-      <button class="btn-main" onclick="showScreen(2)">اقرأي عهودي لك ✨</button>
+      <button class="btn-main" onclick="showScreen(2)">اقرأي عهودي لكِ ✨</button>
     </div>
 
     <!-- المرحلة 2: بطاقات العهود -->
     <div id="screen2" style="display: none;">
       <div class="badge">المسي كل بطاقة لفتح التالية</div>
-      <h1>مواثيق ثقتي بك، <span class="name">خولة</span></h1>
+      <h1>مواثيق ثقتي بكِ، <span class="name">خولة</span></h1>
 
       <div class="deck-container">
         <!-- البطاقة 4 -->
         <div class="promise-card" id="card4" style="z-index: 1;">
           <h3>عهد الحرية والأمان 💍</h3>
-          <p>أنت شريكة روحي واختيار قلبي، لك كامل حريتك واحترامك، ولن أكون قيداً يثقل روحك بعد اليوم أبداً.</p>
+          <p>أنتِ شريكة روحي واختيار قلبي، لكِ كامل حريتكِ واحترامكِ، ولن أكون قيداً يُثْقِلُ روحكِ بعد اليوم أبداً.</p>
           <div class="card-hint">اضغطي للانتقال إلى ختام العهود 🤍</div>
         </div>
 
         <!-- البطاقة 3 -->
         <div class="promise-card" id="card3" style="z-index: 2; transform: translateY(4px) scale(0.97);">
           <h3>إسقاط التحكم 🕊️</h3>
-          <p>أعاهدك ألا أفرض عليك ما تكرهين، ولا أتحكم في قراراتك.. فالحب تفاهم وأمان لا تملك.</p>
+          <p>أعاهدكِ ألا أفرضَ عليكِ ما تكرهين، ولا أتحكم في قراراتكِ.. فالحب تفاهم وأمان لا تملّك.</p>
           <div class="card-hint">المسي للمتابعة ✨</div>
         </div>
 
         <!-- البطاقة 2 -->
         <div class="promise-card" id="card2" style="z-index: 3; transform: translateY(2px) scale(0.98);">
-          <h3>وأد الشك للأبد ✨</h3>
-          <p>أعدك أن أطرد كل هواجس الظن والشك.. مكانتك عندي فوق كل ريبة، وقلبي يثق بك ثقة عمياء مطلقة.</p>
+          <h3>وَأْدُ الشك للأبد ✨</h3>
+          <p>أعدكِ أن أطرد كل هواجس الظن والشك.. مكانتكِ عندي فوق كل ريبة، وقلبي يثق بكِ ثقة عمياء مطلقة.</p>
           <div class="card-hint">المسي للمتابعة ✨</div>
         </div>
 
         <!-- البطاقة 1 -->
         <div class="promise-card" id="card1" style="z-index: 4;">
           <h3>صدق الاعتذار 👑</h3>
-          <p>أعتذر عن كل لحظة اختنقت فيها من غيرتي وظنوني، وعن كل تصرف كبل عفويتك وابتسامتك الجميلة.</p>
+          <p>أعتذر عن كل لحظة اختنقتِ فيها من غيرتي وظنوني، وعن كل تصرف كَبَّلَ عفويتكِ وابتسامتكِ الجميلة.</p>
           <div class="card-hint">المسي البطاقة لقراءة العهد التالي 👆</div>
         </div>
       </div>
@@ -286,16 +281,16 @@
     <div id="screen3" style="display: none;">
       <div class="badge">لحظة الصفح والبداية</div>
       <div style="font-size: 40px; margin-bottom: 6px;">🥺🌸</div>
-      <h1>أميرتي <span class="name">خولة</span>، هل عفوتِ؟</h1>
+      <h1>أميرتي <span class="name">خولة</span>، هل عَفَوْتِ؟</h1>
       
       <p>
         طوينا صفحة الشك والألم لنبدأ عهداً من الأمان والمودة الصافية.<br><br>
-        <strong>فهل يقبل فؤادك اعتذاري لنبدأ من جديد؟</strong>
+        <strong>فهل يقبل فؤادكِ اعتذاري لنبدأ من جديد؟</strong>
       </p>
 
       <div style="display:flex; justify-content:center; align-items:center; gap:12px; min-height:55px; position:relative;">
-        <button class="btn-main" id="forgiveBtn">عفوت وسامحتك من قلبي ❤️</button>
-        <button class="btn-reject" id="refuseBtn">لست راضية 😤</button>
+        <button class="btn-main" id="forgiveBtn">عَفَوْتُ وسامحتك من قلبي ❤️</button>
+        <button class="btn-reject" id="refuseBtn">لستُ راضية 😤</button>
       </div>
     </div>
 
@@ -398,16 +393,16 @@
 
       document.getElementById('cardWrapper').innerHTML = `
         <div style="font-size: 50px; margin-bottom: 8px;">💍👑</div>
-        <h1>عهد أبدي لك، يا أميرتي <span class="name">خولة</span></h1>
+        <h1>عهدٌ أبديٌّ لكِ، يا أميرتي <span class="name">خولة</span></h1>
         
         <div class="poetry-box">
-          أبشر بعهد صادق لا ينثني ... أنت الأمان ورفعتي ومكاني<br>
-          فليشهد القلب المتيم أنني ... أفديك بالإخلاص والإيمان
+          أَبْشِرْ بعهدٍ صادقٍ لا يَنْثَنِي ... أنتِ الأمانُ ورِفْعَتِي ومكاني<br>
+          فَلْيَشْهَدِ القلبُ المُتَيَّمُ أنني ... أفديكِ بالإخلاصِ والإيمانِ
         </div>
 
         <p>
-          شكراً لأن قلبك واسع ونبيل.. أعدك بحياة قادمة ملؤها الثقة المطلقة والراحة والوفاء.<br><br>
-          <strong>أحبك حباً يليق بمقامك يا خولة ❤️</strong>
+          شكراً لأن قلبكِ واسعٌ ونبيل.. أعدكِ بحياةٍ قادمة ملؤها الثقة المطلقة والراحة والوفاء.<br><br>
+          <strong>أحبكِ حباً يليقُ بمقامكِ يا خولة ❤️</strong>
         </p>
       `;
       launchCelebration();
