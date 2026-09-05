@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>إلى أميرتي خولة ❤️</title>
+  <title>إلى أميرتي خولة</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
       -webkit-user-select: none;
@@ -20,181 +20,175 @@
       height: 100%;
       overflow: hidden;
       position: fixed;
+      background-color: #0c0205;
     }
 
-    /* خلفية ليلية وردية فخمة */
+    /* نفس الخلفية المتدرجة العميقة للحاسوب */
     body {
-      background: radial-gradient(circle at 50% 20%, #2b0914 0%, #150308 100%);
+      background: radial-gradient(circle at 50% 30%, #2e0816 0%, #120207 70%, #080104 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-      color: #fff;
     }
 
-    /* الحاوية الرئيسية الزجاجية */
+    /* الحاوية الزجاجية الداكنة المتطابقة مع الحاسوب */
     .card-wrapper {
-      background: rgba(45, 10, 22, 0.75);
-      border: 1px solid rgba(255, 117, 143, 0.25);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      padding: 24px 20px;
-      border-radius: 30px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 77, 109, 0.15);
+      background: rgba(36, 10, 20, 0.65);
+      border: 1px solid rgba(255, 105, 135, 0.28);
+      border-radius: 28px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), inset 0 0 1px 1px rgba(255, 255, 255, 0.08);
       text-align: center;
-      width: 90%;
-      max-width: 395px;
+      width: 88%;
+      max-width: 375px;
+      padding: 30px 22px;
       position: relative;
       z-index: 10;
     }
 
-    .step-badge {
+    .badge {
       display: inline-block;
       font-size: 11px;
-      letter-spacing: 1px;
       color: #ff758f;
-      background: rgba(255, 117, 143, 0.12);
-      border: 1px solid rgba(255, 117, 143, 0.25);
+      background: rgba(255, 117, 143, 0.1);
+      border: 1px solid rgba(255, 117, 143, 0.2);
       padding: 4px 14px;
       border-radius: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     h1 {
       font-size: 20px;
-      line-height: 1.45;
-      color: #fff;
-      margin-bottom: 10px;
-      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-weight: 600;
+      line-height: 1.4;
     }
 
     .name {
       color: #ff4d6d;
-      text-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
     }
 
     .poetry-box {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border-right: 3px solid #ff4d6d;
       border-radius: 12px;
-      padding: 10px 14px;
-      margin: 10px 0 14px 0;
+      padding: 12px 14px;
+      margin: 14px 0 18px 0;
       font-size: 13.5px;
       line-height: 1.85;
-      color: #ffd6df;
-      font-style: italic;
+      color: #fce4ec;
+      text-align: center;
     }
 
     p {
-      font-size: 13.8px;
+      font-size: 13.5px;
       line-height: 1.8;
-      color: #f1cfd7;
-      margin-bottom: 18px;
+      color: #e2c2cb;
+      margin-bottom: 22px;
     }
 
     button {
-      padding: 12px 24px;
+      padding: 12px 28px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       border-radius: 50px;
       border: none;
       cursor: pointer;
       touch-action: manipulation;
     }
 
-    .btn-action {
+    .btn-main {
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
-      color: #fff;
+      color: #ffffff;
       box-shadow: 0 6px 20px rgba(201, 24, 74, 0.4);
-      transition: transform 0.2s ease;
+      transition: transform 0.15s ease;
     }
 
-    .btn-action:active {
-      transform: scale(0.95);
+    .btn-main:active {
+      transform: scale(0.96);
     }
 
     .btn-reject {
-      background: rgba(255, 255, 255, 0.12);
-      color: #e0d0d5;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: #dfd0d4;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: absolute;
       transition: left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
       z-index: 9999;
       white-space: nowrap;
     }
 
-    /* منطقة مكدس بطاقات العهود */
+    /* بطاقات العهود */
     .deck-container {
       position: relative;
       width: 100%;
       height: 165px;
       margin: 12px 0 18px 0;
-      perspective: 1000px;
     }
 
     .promise-card {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(145deg, rgba(74, 14, 37, 0.95), rgba(38, 7, 19, 0.98));
-      border: 1px solid rgba(255, 117, 143, 0.35);
-      border-radius: 20px;
-      padding: 16px 14px;
+      background: rgba(50, 14, 28, 0.95);
+      border: 1px solid rgba(255, 117, 143, 0.25);
+      border-radius: 18px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       text-align: center;
     }
 
     .promise-card h3 {
       color: #ff758f;
-      font-size: 15px;
+      font-size: 14.5px;
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-weight: 600;
     }
 
     .promise-card p {
-      font-size: 13px;
-      line-height: 1.6;
-      color: #ffe5ec;
+      font-size: 12.8px;
+      line-height: 1.65;
+      color: #fce4ec;
       margin-bottom: 0;
     }
 
-    .card-tap-hint {
+    .card-hint {
       position: absolute;
       bottom: 8px;
       font-size: 11px;
-      color: rgba(255, 117, 143, 0.7);
+      color: rgba(255, 117, 143, 0.6);
     }
 
-    /* أنيميشن اختفاء البطاقة للأعلى عند النقر */
     .card-dismissed {
-      transform: translateY(-80px) rotate(-8deg) scale(0.9) !important;
+      transform: translateY(-80px) rotate(-6deg) scale(0.9) !important;
       opacity: 0 !important;
       pointer-events: none;
     }
 
-    /* أنيميشن انفجار الزر */
+    /* انفجار الزر والإيموجي */
     .btn-exploded {
-      animation: popBurst 0.35s forwards ease-in-out !important;
+      animation: blowUp 0.35s forwards ease-in-out !important;
       pointer-events: none;
     }
 
-    @keyframes popBurst {
+    @keyframes blowUp {
       0% { transform: scale(1); filter: brightness(1); }
-      50% { transform: scale(1.4) rotate(15deg); filter: brightness(2); }
+      50% { transform: scale(1.3) rotate(15deg); filter: brightness(2); }
       100% { transform: scale(0); opacity: 0; }
     }
 
-    /* الإيموجي الغاضب */
     .angry-icon {
       position: fixed;
-      font-size: 50px;
+      font-size: 45px;
       z-index: 10000;
       pointer-events: none;
       transform: translate(-50%, -50%);
@@ -212,7 +206,7 @@
       transform: translate(-50%, -65%) scale(0.8) !important;
     }
 
-    /* القلوب اللامعة في الخلفية */
+    /* خلفية متناثرة ناعمة */
     .ambient-star {
       position: absolute;
       user-select: none;
@@ -222,8 +216,8 @@
 
     @keyframes glideUp {
       0% { transform: translateY(105vh) scale(0.6); opacity: 0; }
-      30% { opacity: 0.6; }
-      100% { transform: translateY(-15vh) scale(1.2); opacity: 0; }
+      30% { opacity: 0.5; }
+      100% { transform: translateY(-15vh) scale(1.1); opacity: 0; }
     }
   </style>
 </head>
@@ -231,84 +225,83 @@
 
   <div class="card-wrapper" id="cardWrapper">
     
-    <!-- المرحلة 1: المقدمة واعتراف بالخطأ -->
+    <!-- المرحلة 1: الاعتراف والبداية -->
     <div id="screen1">
-      <div class="step-badge">بِدَايَةُ العَهْدِ الجَدِيد</div>
-      <div style="font-size: 50px; margin-bottom: 8px;">💌</div>
-      <h1>إلى مَلِيكَةِ قَلْبِي، <span class="name">خَوْلَة</span></h1>
+      <div class="badge">بداية العهد الجديد</div>
+      <div style="font-size: 44px; margin-bottom: 8px;">💌</div>
+      <h1>إلى مليكة قلبي، <span class="name">خولة</span></h1>
       
       <div class="poetry-box">
-        قَد كُنتُ أَقْسُو وَظَنّي قَادَنِي خَطَأً ... فَمَا جَنَيتُ سِوَى حُزْنٍ بِوِجْدَانِي<br>
-        واليَومَ جِئْتُكِ بِالإِخْلَاصِ مُعْتَرِفاً ... أَنَّ الأَمَانَ هُوَ التَّسْلِيمُ لِلْجَانِي
+        قد كنت أقسو وظني قادني خطأ ... فما جنيت سوى حزن بوجداني<br>
+        واليوم جئتك بالإخلاص معترفا ... أن الأمان هو التسليم للجاني
       </div>
 
       <p>
-        أميرتي خولة، علّمني بُعدكِ أن الغيرة المفرطة والشك لم يكونا حباً، بل خوفاً أعمى آذى قلبكِ النقي.<br>
-        أعددتُ لكِ عهوداً حقيقية خُطّت بالندم والرغبة الصادقة ألا تتكرر أخطائي.
+        أميرتي خولة، علمني بعدك أن الغيرة والشك لم يكونا حباً، بل خوفاً أعمى آذى قلبك النقي.<br>
+        أعددت لك عهوداً حقيقية بالندم والرغبة الصادقة ألا تتكرر أخطائي.
       </p>
 
-      <button class="btn-action" onclick="showScreen(2)">اقرأي عُهُودِي لَكِ ✨</button>
+      <button class="btn-main" onclick="showScreen(2)">اقرأي عهودي لك ✨</button>
     </div>
 
-    <!-- المرحلة 2: مكدس بطاقات العهود التفاعلية -->
+    <!-- المرحلة 2: بطاقات العهود -->
     <div id="screen2" style="display: none;">
-      <div class="step-badge">المِسِي كُلَّ بِطَاقَةٍ لِفَتْحِ التَّالِيَة</div>
-      <h1>مَوَاثِيقُ ثِقَتِي بِكِ، <span class="name">خَوْلَة</span></h1>
+      <div class="badge">المسي كل بطاقة لفتح التالية</div>
+      <h1>مواثيق ثقتي بك، <span class="name">خولة</span></h1>
 
       <div class="deck-container">
-        <!-- البطاقة 4 (الأخيرة) -->
+        <!-- البطاقة 4 -->
         <div class="promise-card" id="card4" style="z-index: 1;">
-          <h3>💍 عَهْدُ الحُرِّيَّةِ وَالأَمَان</h3>
-          <p>أنتِ شريكة روحي واختيار قلبي، لكِ كامل حريتكِ واحترامكِ، ولن أكون قيداً يثقل روحكِ بعد اليوم أبداً.</p>
-          <div class="card-tap-hint">اضغطي للانتقال إلى ختام العهود 🤍</div>
+          <h3>عهد الحرية والأمان 💍</h3>
+          <p>أنت شريكة روحي واختيار قلبي، لك كامل حريتك واحترامك، ولن أكون قيداً يثقل روحك بعد اليوم أبداً.</p>
+          <div class="card-hint">اضغطي للانتقال إلى ختام العهود 🤍</div>
         </div>
 
         <!-- البطاقة 3 -->
         <div class="promise-card" id="card3" style="z-index: 2; transform: translateY(4px) scale(0.97);">
-          <h3>🕊️ إِسْقَاطُ التَّحَكُّم</h3>
-          <p>أعاهدكِ ألا أفرض عليكِ ما تكرهين، ولا أتحكم في قراراتكِ أو تفاصيلكِ.. فالحب أمان وتفاهم لا تملّك.</p>
-          <div class="card-tap-hint">المسي للمتابعة ✨</div>
+          <h3>إسقاط التحكم 🕊️</h3>
+          <p>أعاهدك ألا أفرض عليك ما تكرهين، ولا أتحكم في قراراتك.. فالحب تفاهم وأمان لا تملك.</p>
+          <div class="card-hint">المسي للمتابعة ✨</div>
         </div>
 
         <!-- البطاقة 2 -->
         <div class="promise-card" id="card2" style="z-index: 3; transform: translateY(2px) scale(0.98);">
-          <h3>✨ وَأْدُ الشَّكِّ لِلأَبَد</h3>
-          <p>أعدكِ أن أطرد كل هواجس الظن وأوهام الشك.. مكانتكِ عندي فوق كل ريبة، وقلبي يثق بكِ ثقة عمياء مطلقة.</p>
-          <div class="card-tap-hint">المسي للمتابعة ✨</div>
+          <h3>وأد الشك للأبد ✨</h3>
+          <p>أعدك أن أطرد كل هواجس الظن والشك.. مكانتك عندي فوق كل ريبة، وقلبي يثق بك ثقة عمياء مطلقة.</p>
+          <div class="card-hint">المسي للمتابعة ✨</div>
         </div>
 
-        <!-- البطاقة 1 (الأولى من الأعلى) -->
+        <!-- البطاقة 1 -->
         <div class="promise-card" id="card1" style="z-index: 4;">
-          <h3>👑 صِدْقُ الاعْتِذَار</h3>
-          <p>أعتذر عن كل لحظة اختنقتِ فيها من غيرتي وظنوني، وعن كل تصرف كبّل عفويتكِ وابتسامتكِ الجميلة.</p>
-          <div class="card-tap-hint">المسي البطاقة لقراءة العهد التالي 👆</div>
+          <h3>صدق الاعتذار 👑</h3>
+          <p>أعتذر عن كل لحظة اختنقت فيها من غيرتي وظنوني، وعن كل تصرف كبل عفويتك وابتسامتك الجميلة.</p>
+          <div class="card-hint">المسي البطاقة لقراءة العهد التالي 👆</div>
         </div>
       </div>
 
-      <button class="btn-action" id="proceedDecisionBtn" style="display: none;" onclick="showScreen(3)">الخُطْوَةُ الأَخِيرَة ❤️</button>
+      <button class="btn-main" id="proceedDecisionBtn" style="display: none;" onclick="showScreen(3)">الخطوة الأخيرة ❤️</button>
     </div>
 
-    <!-- المرحلة 3: طلب المسامحة وزر الرفض الذكي -->
+    <!-- المرحلة 3: طلب المسامحة -->
     <div id="screen3" style="display: none;">
-      <div class="step-badge">لَحْظَةُ الصَّفْحِ وَالبِدَايَة</div>
-      <div style="font-size: 45px; margin-bottom: 6px;">🥺🌸</div>
-      <h1>أَمِيرَتِي <span class="name">خَوْلَة</span>، هَلْ عَفَوْتِ؟</h1>
+      <div class="badge">لحظة الصفح والبداية</div>
+      <div style="font-size: 40px; margin-bottom: 6px;">🥺🌸</div>
+      <h1>أميرتي <span class="name">خولة</span>، هل عفوتِ؟</h1>
       
       <p>
         طوينا صفحة الشك والألم لنبدأ عهداً من الأمان والمودة الصافية.<br><br>
-        <strong>فهل يقبل فؤادكِ اعتذاري لنبدأ من جديد؟</strong>
+        <strong>فهل يقبل فؤادك اعتذاري لنبدأ من جديد؟</strong>
       </p>
 
-      <div style="display:flex; justify-content:center; align-items:center; gap:12px; min-height:60px; position:relative;">
-        <button class="btn-action" id="forgiveBtn">عَفَوْتُ وَسَامَحْتُكَ مِنْ قَلْبِي ❤️</button>
-        <button class="btn-reject" id="refuseBtn">لَسْتُ رَاضِيَةً 😤</button>
+      <div style="display:flex; justify-content:center; align-items:center; gap:12px; min-height:55px; position:relative;">
+        <button class="btn-main" id="forgiveBtn">عفوت وسامحتك من قلبي ❤️</button>
+        <button class="btn-reject" id="refuseBtn">لست راضية 😤</button>
       </div>
     </div>
 
   </div>
 
   <script>
-    // التنقل بين الشاشات
     function showScreen(num) {
       document.getElementById('screen1').style.display = 'none';
       document.getElementById('screen2').style.display = 'none';
@@ -316,7 +309,6 @@
       document.getElementById(`screen${num}`).style.display = 'block';
     }
 
-    // تفاعل تقليب بطاقات العهود
     let currentCardIndex = 1;
     function setupCards() {
       for (let i = 1; i <= 4; i++) {
@@ -328,7 +320,7 @@
 
             if (currentCardIndex > 4) {
               document.querySelector('.deck-container').style.display = 'none';
-              document.querySelector('#screen2 .step-badge').textContent = 'تَمَّ حِفْظُ العُهُودِ فِي القَلْب ✨';
+              document.querySelector('#screen2 .badge').textContent = 'تم حفظ العهود في القلب ✨';
               document.getElementById('proceedDecisionBtn').style.display = 'inline-block';
             }
           }
@@ -337,7 +329,6 @@
     }
     setupCards();
 
-    // هروب وانفجار زر الرفض
     const refuseBtn = document.getElementById('refuseBtn');
     const forgiveBtn = document.getElementById('forgiveBtn');
     let escapeTries = 0;
@@ -354,8 +345,8 @@
       escapeTries++;
       refuseBtn.style.position = 'fixed';
 
-      const btnW = refuseBtn.offsetWidth || 110;
-      const btnH = refuseBtn.offsetHeight || 44;
+      const btnW = refuseBtn.offsetWidth || 105;
+      const btnH = refuseBtn.offsetHeight || 40;
 
       const safePadding = 20;
       const maxW = window.innerWidth - btnW - safePadding;
@@ -386,7 +377,7 @@
         angry.style.top = `${centerY}px`;
         document.body.appendChild(angry);
 
-        forgiveBtn.style.transform = 'scale(1.1)';
+        forgiveBtn.style.transform = 'scale(1.08)';
 
         setTimeout(() => {
           angry.classList.add('angry-vanish');
@@ -400,37 +391,35 @@
     refuseBtn.addEventListener('touchstart', handleRefuseEscape, { passive: false });
     refuseBtn.addEventListener('click', handleRefuseEscape);
 
-    // الاحتفال النهائي عند المسامحة
     forgiveBtn.addEventListener('click', () => {
       const angry = document.querySelector('.angry-icon');
       if (angry) angry.remove();
       refuseBtn.remove();
 
       document.getElementById('cardWrapper').innerHTML = `
-        <div style="font-size: 55px; margin-bottom: 10px;">👑💍</div>
-        <h1>عَهْدٌ أَبَدِيٌّ لَكِ، يَا أَمِيرَتِي <span class="name">خَوْلَة</span></h1>
+        <div style="font-size: 50px; margin-bottom: 8px;">💍👑</div>
+        <h1>عهد أبدي لك، يا أميرتي <span class="name">خولة</span></h1>
         
         <div class="poetry-box">
-          أَبْشِرْ بِعَهْدٍ صَادِقٍ لَا يَنْثَنِي ... أَنْتِ الأَمَانُ وَرِفْعَتِي وَمَكَانِي<br>
-          فَلْيَشْهَدِ القَلْبُ المُتَيَّمُ أَنَّنِي ... أَفْدِيكِ بِالإِخْلَاصِ وَالإِيمَانِ
+          أبشر بعهد صادق لا ينثني ... أنت الأمان ورفعتي ومكاني<br>
+          فليشهد القلب المتيم أنني ... أفديك بالإخلاص والإيمان
         </div>
 
         <p>
-          شكراً لأن قلبكِ واسع ونبيل.. أعدكِ بحياة قادمة ملؤها الثقة المطلقة والراحة والوفاء.<br><br>
-          <strong>أحبكِ حباً يليقُ بمقامكِ يا خولة ❤️</strong>
+          شكراً لأن قلبك واسع ونبيل.. أعدك بحياة قادمة ملؤها الثقة المطلقة والراحة والوفاء.<br><br>
+          <strong>أحبك حباً يليق بمقامك يا خولة ❤️</strong>
         </p>
       `;
       launchCelebration();
     });
 
-    // عناصر زينة تطوف بالخلفية
-    const elements = ['✨', '🌸', '❤️', '🤍', '👑', '🕊️'];
+    const elements = ['✨', '🌸', '❤️', '🤍', '👑'];
     function addAmbientParticle() {
       const p = document.createElement('div');
       p.classList.add('ambient-star');
       p.innerHTML = elements[Math.floor(Math.random() * elements.length)];
       p.style.left = Math.random() * 92 + 'vw';
-      p.style.fontSize = Math.random() * 14 + 14 + 'px';
+      p.style.fontSize = Math.random() * 12 + 13 + 'px';
       p.style.animationDuration = Math.random() * 2.5 + 4 + 's';
       document.body.appendChild(p);
 
