@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>إلى أميرتي مشيمشة ❤️</title>
+  <title>رحلة إلى قلب أميرتي مشيمشة ❤️</title>
   <style>
     * {
       box-sizing: border-box;
@@ -18,7 +18,7 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden; /* يمنع التمرير لأسفل نهائياً */
+      overflow: hidden;
       position: fixed;
     }
 
@@ -34,7 +34,7 @@
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      padding: 28px 20px;
+      padding: 26px 20px;
       border-radius: 28px;
       box-shadow: 0 15px 35px rgba(255, 77, 109, 0.22);
       text-align: center;
@@ -50,17 +50,38 @@
       display: none;
     }
 
-    .envelope-icon {
-      font-size: 65px;
-      cursor: pointer;
+    /* مؤشر التقدم العلوي */
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffd1dc;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      width: 22px;
+      border-radius: 10px;
+      background: #ff4d6d;
+    }
+
+    .icon-big {
+      font-size: 55px;
+      margin-bottom: 10px;
       display: inline-block;
       animation: gentleBounce 2s infinite ease-in-out;
-      margin-bottom: 8px;
     }
 
     h1 {
       color: #c9184a;
-      font-size: 21px;
+      font-size: 20.5px;
       line-height: 1.45;
       margin-bottom: 12px;
     }
@@ -81,27 +102,18 @@
       font-size: 14.5px;
       line-height: 1.8;
       font-weight: 500;
+      text-align: center;
     }
 
     p {
       color: #4a4e69;
       font-size: 14.5px;
       line-height: 1.8;
-      margin-bottom: 22px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      position: relative;
-      min-height: 60px;
-      width: 100%;
+      margin-bottom: 20px;
     }
 
     button {
-      padding: 12px 22px;
+      padding: 12px 24px;
       font-size: 14.5px;
       font-weight: bold;
       border-radius: 50px;
@@ -114,7 +126,6 @@
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
       color: #ffffff;
       box-shadow: 0 5px 18px rgba(201, 24, 74, 0.35);
-      z-index: 2;
       transition: transform 0.2s ease;
     }
 
@@ -131,7 +142,58 @@
       white-space: nowrap;
     }
 
-    /* أنيميشن الانفجار */
+    /* تصميم نشاط القلب النابض في الخطوة 2 */
+    .heart-tap-area {
+      margin: 15px 0;
+    }
+
+    .tap-heart {
+      font-size: 60px;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.15s ease;
+    }
+
+    .tap-heart:active {
+      transform: scale(1.3);
+    }
+
+    .tap-counter {
+      color: #c9184a;
+      font-weight: bold;
+      font-size: 13.5px;
+      margin-top: 5px;
+    }
+
+    /* تصميم بطاقات العهود في الخطوة 4 */
+    .promises-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .promise-card {
+      background: #fff8f9;
+      border: 1px dashed #ff85a1;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      color: #590d22;
+      opacity: 0.35;
+      transform: translateY(5px);
+      transition: all 0.35s ease;
+    }
+
+    .promise-card.unlocked {
+      opacity: 1;
+      transform: translateY(0);
+      background: #ffe5ec;
+      border-style: solid;
+    }
+
+    /* أنيميشن الانفجار والإيموجي الغاضب */
     .explode-btn {
       animation: blowUp 0.35s forwards ease-in-out !important;
       pointer-events: none;
@@ -143,7 +205,6 @@
       100% { transform: scale(0); opacity: 0; }
     }
 
-    /* الإيموجي الغاضب: يظهر سريعاً ثم يختفي تدريجياً */
     .angry-emoji {
       position: fixed;
       font-size: 50px;
@@ -194,21 +255,45 @@
 <body>
 
   <div class="card" id="card">
-    <!-- المرحلة الأولى -->
-    <div id="step1">
-      <div class="envelope-icon" id="openBtn">💌</div>
-      <h1>رسالة اعتذار ومودة إلى أميرتي <span class="name-badge">مشيمشة</span></h1>
-      <p>
-        بين ثنايا هذا الظرف سرٌّ لا يتسع له إلا قلبكِ النقي..<br>
-        تفضلي بفتحه يا سيدة قلبي ✨
-      </p>
-      <button class="btn-main" onclick="openLetter()">افتحي الرسالة ❤️</button>
+    <!-- مؤشر الخطوات -->
+    <div class="progress-dots">
+      <div class="dot active" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
+      <div class="dot" id="dot3"></div>
+      <div class="dot" id="dot4"></div>
+      <div class="dot" id="dot5"></div>
     </div>
 
-    <!-- المرحلة الثانية -->
-    <div id="step2" style="display: none;">
-      <div style="font-size: 45px; margin-bottom: 6px;">🌸✨</div>
-      <h1>إلى النبض الذي عاد لروحي.. <span class="name-badge">مشيمشة</span></h1>
+    <!-- الخطوة 1: المظروف السري -->
+    <div id="step1" class="step-container">
+      <div class="icon-big">💌</div>
+      <h1>إلى أميرتي الغالية <span class="name-badge">مشيمشة</span></h1>
+      <p>
+        هذه ليست مجرد صفحة عابرة.. بل رسائل صادقة خُطّت لأجلك خطوة بخطوة.<br>
+        هل أنتِ مستعدة لفتح أول أسرارها؟
+      </p>
+      <button class="btn-main" onclick="goToStep(2)">ابدأي الرحلة معي ✨</button>
+    </div>
+
+    <!-- الخطوة 2: نشاط مقياس النبض والشوق -->
+    <div id="step2" class="step-container" style="display: none;">
+      <div class="icon-big">💓</div>
+      <h1>مقياس نبض الشوق</h1>
+      <p>
+        غيابكِ علّمني أن دقات قلبي لا تنتظم إلا بوجودكِ.<br>
+        <strong>المسي هذا القلب 3 مرات</strong> لإعادة إيقاع النبض!
+      </p>
+      <div class="heart-tap-area">
+        <div class="tap-heart" id="tapHeartBtn">🤍</div>
+        <div class="tap-counter" id="tapCounter">المسات المتبقية: 3</div>
+      </div>
+      <button class="btn-main" id="step2Next" style="display:none;" onclick="goToStep(3)">تابعي لترى ما يخفيه قلبي ❤️</button>
+    </div>
+
+    <!-- الخطوة 3: الشعر والعودة بعد الغياب -->
+    <div id="step3" class="step-container" style="display: none;">
+      <div class="icon-big">🌸✨</div>
+      <h1>حينما عاد النبض لروحي..</h1>
       
       <div class="poetry">
         وما كان البُعادُ سوى عذابٍ ... يَمزّقُ مُهجةَ القلبِ الشّقيِّ<br>
@@ -216,12 +301,37 @@
       </div>
 
       <p>
-        أميرتي الغالية، علّمني الغيابُ أن الحياة بغير قربكِ باطلة، وأنكِ لستِ خياراً بل قَدَرٌ جميل لا يتبدّل.<br>
-        أعتذر بملء الفؤاد عن كل لحظة أثقلت روحكِ، وها نحن نبدأ عهداً أصدق وأبقى.<br><br>
-        <strong>فهل صَفَحَ قلبكِ النقي وعفا؟</strong>
+        أميرتي <span class="name-badge">مشيمشة</span>، الرجوع إليكِ لم يكن مجرد فرصة ثانية، بل حياة جديدة كُتبت لي من جديد.
+      </p>
+      <button class="btn-main" onclick="goToStep(4)">انظري عهودي لكِ 📜</button>
+    </div>
+
+    <!-- الخطوة 4: فتح العهود والمواثيق -->
+    <div id="step4" class="step-container" style="display: none;">
+      <div class="icon-big">🤝👑</div>
+      <h1>عهود ومواثيق بيننا</h1>
+      <p>اضغطي على الزر لفتح عهودي لكِ واحداً تلو الآخر:</p>
+      
+      <div class="promises-list">
+        <div class="promise-card" id="p1">💎 <strong>عهد الأمان:</strong> سأكون لكِ وطناً وسنداً في كل وقت.</div>
+        <div class="promise-card" id="p2">🕊️ <strong>عهد التقدير:</strong> ألا تغيب الابتسامة عن وجهكِ بسببي.</div>
+        <div class="promise-card" id="p3">💍 <strong>عهد البقاء:</strong> ألا نسمح لأي خلاف أن يباعد أرواحنا ثانية.</div>
+      </div>
+
+      <button class="btn-main" id="revealPromiseBtn" onclick="revealNextPromise()">افتحي العهد الأول ✨</button>
+      <button class="btn-main" id="step4Next" style="display:none;" onclick="goToStep(5)">الخطوة الأخيرة والأهم ❤️</button>
+    </div>
+
+    <!-- الخطوة 5: لحظة الاعتذار والموافقة -->
+    <div id="step5" class="step-container" style="display: none;">
+      <div class="icon-big">🥺🌹</div>
+      <h1>اعتذار من صميم الفؤاد</h1>
+      <p>
+        أعتذر بملء الفؤاد عن كل لحظة أثقلت روحكِ يا سيدة قلبي..<br><br>
+        <strong>فهل صَفَحَ قلبكِ النقي وعفا عني يا أميرتي مشيمشة؟</strong>
       </p>
 
-      <div class="buttons">
+      <div style="display:flex; justify-content:center; align-items:center; gap:12px; min-height:60px; position:relative;">
         <button class="btn-main" id="yesBtn">عفوتُ وسامحتك يا عُمري ❤️</button>
         <button class="btn-no" id="noBtn">ما زلتُ عاتبةً 😤</button>
       </div>
@@ -230,25 +340,70 @@
 
   <script>
     const card = document.getElementById('card');
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
+    let currentStep = 1;
+
+    // التنقل بين الخطوات
+    function goToStep(stepNum) {
+      document.getElementById(`step${currentStep}`).style.display = 'none';
+      currentStep = stepNum;
+      document.getElementById(`step${currentStep}`).style.display = 'block';
+
+      // تحديث نقاط التقدم
+      for (let i = 1; i <= 5; i++) {
+        const dot = document.getElementById(`dot${i}`);
+        if (i <= stepNum) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      }
+    }
+
+    // تفاعل الخطوة 2 (مقياس النبض)
+    let taps = 3;
+    const tapBtn = document.getElementById('tapHeartBtn');
+    const tapCounter = document.getElementById('tapCounter');
+    const step2Next = document.getElementById('step2Next');
+
+    tapBtn.addEventListener('click', () => {
+      if (taps > 0) {
+        taps--;
+        if (taps === 2) {
+          tapBtn.innerHTML = '🧡';
+          tapCounter.textContent = 'المسات المتبقية: 2';
+        } else if (taps === 1) {
+          tapBtn.innerHTML = '💖';
+          tapCounter.textContent = 'لمسة أخيرة ويضيء قلبي!';
+        } else if (taps === 0) {
+          tapBtn.innerHTML = '❤️‍🔥';
+          tapBtn.style.animation = 'gentleBounce 0.8s infinite';
+          tapCounter.innerHTML = '<strong>امتلأ القلب بحبكِ من جديد!</strong>';
+          step2Next.style.display = 'inline-block';
+        }
+      }
+    });
+
+    // تفاعل الخطوة 4 (فتح العهود)
+    let promiseIndex = 1;
+    function revealNextPromise() {
+      if (promiseIndex <= 3) {
+        document.getElementById(`p${promiseIndex}`).classList.add('unlocked');
+        promiseIndex++;
+        if (promiseIndex <= 3) {
+          document.getElementById('revealPromiseBtn').textContent = `افتحي العهد ${promiseIndex === 2 ? 'الثاني' : 'الثالث'} ✨`;
+        } else {
+          document.getElementById('revealPromiseBtn').style.display = 'none';
+          document.getElementById('step4Next').style.display = 'inline-block';
+        }
+      }
+    }
+
+    // تفاعل الخطوة 5: زر الرفض والانفجار
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
-
     let escapeCount = 0;
     const maxEscapes = 4;
 
-    function openLetter() {
-      step1.style.opacity = '0';
-      step1.style.transition = 'opacity 0.3s ease';
-      setTimeout(() => {
-        step1.style.display = 'none';
-        step2.style.display = 'block';
-      }, 300);
-    }
-    document.getElementById('openBtn').addEventListener('click', openLetter);
-
-    // التحرك بدقة داخل إطار الشاشة فقط دون إحداث سكرول
     function handleNoInteraction(e) {
       if (e) e.preventDefault();
 
@@ -258,7 +413,6 @@
       }
 
       escapeCount++;
-
       noBtn.style.position = 'fixed';
 
       const btnW = noBtn.offsetWidth || 120;
@@ -266,8 +420,8 @@
 
       const safePadding = 20;
       const maxW = window.innerWidth - btnW - safePadding;
-      const maxH = window.innerHeight - btnH - safePadding - 35; // مراعاة شريط الآيفون السفلي
-      const minTop = safePadding + 40; // مراعاة النوتش العلوي
+      const maxH = window.innerHeight - btnH - safePadding - 35;
+      const minTop = safePadding + 40;
 
       const randomX = Math.floor(Math.random() * (maxW - safePadding)) + safePadding;
       const randomY = Math.floor(Math.random() * (maxH - minTop)) + minTop;
@@ -276,7 +430,6 @@
       noBtn.style.top = `${randomY}px`;
     }
 
-    // الانفجار وظهور الإيموجي ثم اختفاؤه بعد 3 ثوانٍ
     function explodeButton() {
       const rect = noBtn.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
@@ -287,7 +440,6 @@
       setTimeout(() => {
         noBtn.style.display = 'none';
 
-        // إنشاء الإيموجي في مركز الانفجار
         const angry = document.createElement('div');
         angry.classList.add('angry-emoji');
         angry.innerHTML = '😡';
@@ -295,13 +447,10 @@
         angry.style.top = `${centerY}px`;
         document.body.appendChild(angry);
 
-        // تكبير زر المسامحة لجلب الانتباه
         yesBtn.style.transform = 'scale(1.12)';
 
-        // الانتظار 3 ثوانٍ ثم بدء التلاشي ببطء
         setTimeout(() => {
           angry.classList.add('angry-fade-out');
-          // حذفه من الصفحة بعد اكتمال التلاشي (1.5 ثانية)
           setTimeout(() => angry.remove(), 1500);
         }, 3000);
 
@@ -312,10 +461,12 @@
     noBtn.addEventListener('touchstart', handleNoInteraction, { passive: false });
     noBtn.addEventListener('click', handleNoInteraction);
 
+    // الموافقة النهائية والاحتفال
     yesBtn.addEventListener('click', () => {
       const angry = document.querySelector('.angry-emoji');
       if (angry) angry.remove();
       noBtn.remove();
+      document.querySelector('.progress-dots').style.display = 'none';
 
       card.innerHTML = `
         <div style="font-size: 55px; margin-bottom: 10px;">💍👑</div>
@@ -328,12 +479,13 @@
 
         <p>
           دُمتِ لقلبي سكَناً وملاذاً، ووعدٌ منّي ألا يكون القادم إلا تقديراً وحباً ووفاءً يليق بمقامكِ.<br><br>
-          <strong>أحبكِ فوق ما تصفُ الحروف ❤️</strong>
+          <strong>أحبكِ فوق ما تصفُ الحروف والكلمات ❤️</strong>
         </p>
       `;
       triggerShower();
     });
 
+    // عناصر القلوب والتيجان المتطايرة
     const symbols = ['❤️', '💖', '✨', '🌸', '🤍', '👑'];
     function spawnItem() {
       const item = document.createElement('div');
