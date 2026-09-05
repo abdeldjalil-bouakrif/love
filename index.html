@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إلى أميرتي مشيمشة ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #fff0f3 0%, #ffd6e0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      padding: 36px 26px;
+      border-radius: 28px;
+      box-shadow: 0 20px 45px rgba(255, 77, 109, 0.2);
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      z-index: 10;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .envelope-icon {
+      font-size: 65px;
+      cursor: pointer;
+      display: inline-block;
+      animation: gentleBounce 2s infinite ease-in-out;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope-icon:hover {
+      transform: scale(1.15) rotate(4deg);
+    }
+
+    h1 {
+      color: #c9184a;
+      font-size: 23px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .name-badge {
+      color: #800f2f;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .poetry {
+      background: #fff5f7;
+      border-right: 3px solid #ff4d6d;
+      padding: 12px 16px;
+      margin: 15px 0 20px 0;
+      border-radius: 10px;
+      color: #a4133c;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    p {
+      color: #4a4e69;
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+      min-height: 65px;
+      align-items: center;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #ff4d6d, #c9184a);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(201, 24, 74, 0.35);
+    }
+
+    .btn-main:hover {
+      transform: scale(1.06);
+      box-shadow: 0 8px 25px rgba(201, 24, 74, 0.45);
+    }
+
+    .btn-no {
+      background-color: #f1f3f5;
+      color: #6c757d;
+      position: absolute;
+      border: 1px solid #dee2e6;
+    }
+
+    .floating-item {
+      position: absolute;
+      user-select: none;
+      pointer-events: none;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-15vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <!-- المرحلة الأولى: فتح المظروف -->
+    <div id="step1">
+      <div class="envelope-icon" id="openBtn">💌</div>
+      <h1>رسالة اعتذار ومودة إلى أميرتي <span class="name-badge">مشيمشة</span></h1>
+      <p>
+        بين ثنايا هذا الظرف سرٌّ لا يتسع له إلا قلبكِ النقي..<br>
+        تفضلي بفتحه يا سيدة قلبي ✨
+      </p>
+      <button class="btn-main" onclick="openLetter()">افتحي الرسالة ❤️</button>
+    </div>
+
+    <!-- المرحلة الثانية: نص الاعتذار والشعر -->
+    <div id="step2" style="display: none;">
+      <div style="font-size: 50px; margin-bottom: 8px;">🌸✨</div>
+      <h1>إلى النبض الذي عاد لروحي.. <span class="name-badge">مشيمشة</span></h1>
+      
+      <div class="poetry">
+        وما كان البُعادُ سوى عذابٍ ... يَمزّقُ مُهجةَ القلبِ الشّقيِّ<br>
+        ورجعتُكِ لي حياةٌ بعد موتٍ ... وأنتِ الضوءُ في دربي العتيِّ
+      </div>
+
+      <p>
+        أميرتي الغالية، علّمني الغيابُ أن الحياة بغير قربكِ باطلة، وأنكِ لستِ خياراً بل قَدَرٌ جميل لا يتبدّل.<br>
+        أعتذر بملء الفؤاد عن كل لحظة أثقلت روحكِ، وها نحن نبدأ عهداً أصدق وأبقى.<br><br>
+        <strong>فهل صَفَحَ قلبكِ النقي وعفا؟</strong>
+      </p>
+
+      <div class="buttons">
+        <button class="btn-main" id="yesBtn">عفوتُ وسامحتك يا عُمري ❤️</button>
+        <button class="btn-no" id="noBtn">ما زلتُ عاتبةً عليك 😤</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('card');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    function openLetter() {
+      step1.style.opacity = '0';
+      setTimeout(() => {
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        step2.style.opacity = '1';
+      }, 300);
+    }
+    document.getElementById('openBtn').addEventListener('click', openLetter);
+
+    function dodge() {
+      const cardRect = card.getBoundingClientRect();
+      const maxX = cardRect.width - noBtn.offsetWidth - 25;
+      const maxY = cardRect.height - noBtn.offsetHeight - 25;
+
+      const randomX = Math.floor(Math.random() * (maxX - 20)) + 10;
+      const randomY = Math.floor(Math.random() * (maxY - 20)) + 10;
+
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    }
+
+    noBtn.addEventListener('mouseover', dodge);
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      dodge();
+    });
+
+    yesBtn.addEventListener('click', () => {
+      card.innerHTML = `
+        <div style="font-size: 60px; margin-bottom: 12px;">💍👑</div>
+        <h1>عَهدٌ باقٍ ما حَييت.. يا أميرتي <span class="name-badge">مشيمشة</span></h1>
+        
+        <div class="poetry">
+          سَأحفظُ عهدَنا دَهراً طويلاً ... وأبني مِن أمانينا القُصورا<br>
+          فأنتِ البَدءُ والآمالُ دوماً ... وأنتِ الأُنسُ يملؤني سرورا
+        </div>
+
+        <p>
+          دُمتِ لقلبي سكَناً وملاذاً، ووعدٌ منّي ألا يكون القادم إلا تقديراً وحباً ووفاءً يليق بمقامكِ.<br><br>
+          <strong>أحبكِ فوق ما تصفُ الحروف ❤️</strong>
+        </p>
+      `;
+      triggerShower();
+    });
+
+    const symbols = ['❤️', '💖', '✨', '🌸', '🤍', '👑'];
+    function spawnItem() {
+      const item = document.createElement('div');
+      item.classList.add('floating-item');
+      item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+      item.style.left = Math.random() * 95 + 'vw';
+      item.style.fontSize = Math.random() * 18 + 14 + 'px';
+      item.style.animationDuration = Math.random() * 3 + 3.5 + 's';
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 5500);
+    }
+    setInterval(spawnItem, 350);
+
+    function triggerShower() {
+      for (let i = 0; i < 45; i++) {
+        setTimeout(spawnItem, i * 40);
+      }
+    }
+  </script>
+</body>
+</html>
