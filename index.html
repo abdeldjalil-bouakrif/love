@@ -2,37 +2,52 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>إلى أميرتي مشيمشة ❤️</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     body {
       background: radial-gradient(circle at center, #fff0f3 0%, #ffd6e0 100%);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       position: relative;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      padding: 36px 26px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 28px 20px;
       border-radius: 28px;
-      box-shadow: 0 20px 45px rgba(255, 77, 109, 0.2);
+      box-shadow: 0 15px 35px rgba(255, 77, 109, 0.22);
       text-align: center;
-      max-width: 450px;
       width: 90%;
+      max-width: 414px;
+      max-height: 88vh;
+      overflow-y: auto;
       z-index: 10;
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      touch-action: manipulation;
+    }
+
+    .card::-webkit-scrollbar {
+      display: none;
     }
 
     .envelope-icon {
@@ -40,81 +55,81 @@
       cursor: pointer;
       display: inline-block;
       animation: gentleBounce 2s infinite ease-in-out;
-      user-select: none;
-      transition: transform 0.3s ease;
-    }
-
-    .envelope-icon:hover {
-      transform: scale(1.15) rotate(4deg);
+      margin-bottom: 8px;
     }
 
     h1 {
       color: #c9184a;
-      font-size: 23px;
-      margin-bottom: 15px;
-      line-height: 1.4;
+      font-size: 21px;
+      line-height: 1.45;
+      margin-bottom: 12px;
     }
 
     .name-badge {
       color: #800f2f;
       display: inline-block;
-      font-weight: bold;
+      font-weight: 800;
     }
 
     .poetry {
       background: #fff5f7;
       border-right: 3px solid #ff4d6d;
-      padding: 12px 16px;
-      margin: 15px 0 20px 0;
-      border-radius: 10px;
+      padding: 10px 14px;
+      margin: 12px 0 16px 0;
+      border-radius: 12px;
       color: #a4133c;
-      font-size: 15px;
-      font-style: italic;
+      font-size: 14.5px;
       line-height: 1.8;
+      font-weight: 500;
     }
 
     p {
       color: #4a4e69;
-      font-size: 15px;
-      line-height: 1.85;
+      font-size: 14.5px;
+      line-height: 1.8;
       margin-bottom: 22px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      position: relative;
-      min-height: 65px;
       align-items: center;
+      gap: 12px;
+      position: relative;
+      min-height: 60px;
+      width: 100%;
     }
 
     button {
-      padding: 12px 26px;
-      font-size: 15px;
+      padding: 12px 22px;
+      font-size: 14.5px;
       font-weight: bold;
       border-radius: 50px;
       border: none;
       cursor: pointer;
-      transition: all 0.25s ease;
+      touch-action: manipulation;
     }
 
     .btn-main {
       background: linear-gradient(135deg, #ff4d6d, #c9184a);
       color: #ffffff;
-      box-shadow: 0 6px 20px rgba(201, 24, 74, 0.35);
+      box-shadow: 0 5px 18px rgba(201, 24, 74, 0.35);
+      z-index: 2;
     }
 
-    .btn-main:hover {
-      transform: scale(1.06);
-      box-shadow: 0 8px 25px rgba(201, 24, 74, 0.45);
+    .btn-main:active {
+      transform: scale(0.96);
     }
 
+    /* زر الرفض: يقفز بسلاسة ويبقى ظاهراً في حواف الشاشة */
     .btn-no {
       background-color: #f1f3f5;
       color: #6c757d;
-      position: absolute;
       border: 1px solid #dee2e6;
+      transition: top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      z-index: 9999; /* يبقى دائماً فوق كل العناصر ومرئياً */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      white-space: nowrap;
     }
 
     .floating-item {
@@ -126,7 +141,7 @@
 
     @keyframes gentleBounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
 
     @keyframes floatUp {
@@ -135,7 +150,7 @@
         opacity: 0;
       }
       20% {
-        opacity: 0.9;
+        opacity: 0.85;
       }
       100% {
         transform: translateY(-15vh) rotate(360deg);
@@ -158,9 +173,9 @@
       <button class="btn-main" onclick="openLetter()">افتحي الرسالة ❤️</button>
     </div>
 
-    <!-- المرحلة الثانية: نص الاعتذار والشعر -->
+    <!-- المرحلة الثانية: الاعتذار والشعر -->
     <div id="step2" style="display: none;">
-      <div style="font-size: 50px; margin-bottom: 8px;">🌸✨</div>
+      <div style="font-size: 45px; margin-bottom: 6px;">🌸✨</div>
       <h1>إلى النبض الذي عاد لروحي.. <span class="name-badge">مشيمشة</span></h1>
       
       <div class="poetry">
@@ -176,7 +191,7 @@
 
       <div class="buttons">
         <button class="btn-main" id="yesBtn">عفوتُ وسامحتك يا عُمري ❤️</button>
-        <button class="btn-no" id="noBtn">ما زلتُ عاتبةً عليك 😤</button>
+        <button class="btn-no" id="noBtn">ما زلتُ عاتبةً 😤</button>
       </div>
     </div>
   </div>
@@ -190,36 +205,64 @@
 
     function openLetter() {
       step1.style.opacity = '0';
+      step1.style.transition = 'opacity 0.3s ease';
       setTimeout(() => {
         step1.style.display = 'none';
         step2.style.display = 'block';
-        step2.style.opacity = '1';
       }, 300);
     }
     document.getElementById('openBtn').addEventListener('click', openLetter);
 
-    function dodge() {
-      const cardRect = card.getBoundingClientRect();
-      const maxX = cardRect.width - noBtn.offsetWidth - 25;
-      const maxY = cardRect.height - noBtn.offsetHeight - 25;
+    // القفز إلى حواف الهاتف والبقاء مرئياً دائماً
+    let lastEdge = -1;
+    function dodgeToEdges(e) {
+      if (e) e.preventDefault();
 
-      const randomX = Math.floor(Math.random() * (maxX - 20)) + 10;
-      const randomY = Math.floor(Math.random() * (maxY - 20)) + 10;
+      // تحويل الزر إلى Fixed لكي يتحرك بحرية في أرجاء شاشة الآيفون بالكامل
+      noBtn.style.position = 'fixed';
 
-      noBtn.style.position = 'absolute';
-      noBtn.style.left = `${randomX}px`;
-      noBtn.style.top = `${randomY}px`;
+      const btnW = noBtn.offsetWidth || 130;
+      const btnH = noBtn.offsetHeight || 44;
+      const margin = 20; // مسافة أمان ليبقى مرئياً بالكامل بعيداً عن النوتش والحواف الحادة
+
+      const winW = window.innerWidth;
+      const winH = window.innerHeight;
+
+      // حساب المواضع الأربعة لحواف الشاشة
+      const edgePositions = [
+        // الحافة العلوية (يمين / يسار)
+        { left: margin, top: margin + 35 },
+        { left: winW - btnW - margin, top: margin + 35 },
+        // الحافة اليسرى واليمنى (وسط الشاشة عمودياً)
+        { left: margin, top: (winH / 2) - (btnH / 2) },
+        { left: winW - btnW - margin, top: (winH / 2) - (btnH / 2) },
+        // الحافة السفلية (مع مراعاة شريط التمرير السفلي في الآيفون)
+        { left: margin, top: winH - btnH - margin - 30 },
+        { left: winW - btnW - margin, top: winH - btnH - margin - 30 }
+      ];
+
+      // اختيار حافة مختلفة في كل مرة
+      let nextEdge;
+      do {
+        nextEdge = Math.floor(Math.random() * edgePositions.length);
+      } while (nextEdge === lastEdge);
+      lastEdge = nextEdge;
+
+      const target = edgePositions[nextEdge];
+      noBtn.style.left = `${target.left}px`;
+      noBtn.style.top = `${target.top}px`;
     }
 
-    noBtn.addEventListener('mouseover', dodge);
-    noBtn.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      dodge();
-    });
+    noBtn.addEventListener('mouseover', dodgeToEdges);
+    noBtn.addEventListener('touchstart', dodgeToEdges, { passive: false });
+    noBtn.addEventListener('click', dodgeToEdges);
 
     yesBtn.addEventListener('click', () => {
+      // إخفاء زر الرفض فوراً عند الضغط على الموافقة
+      noBtn.style.display = 'none';
+
       card.innerHTML = `
-        <div style="font-size: 60px; margin-bottom: 12px;">💍👑</div>
+        <div style="font-size: 55px; margin-bottom: 10px;">💍👑</div>
         <h1>عَهدٌ باقٍ ما حَييت.. يا أميرتي <span class="name-badge">مشيمشة</span></h1>
         
         <div class="poetry">
@@ -240,9 +283,9 @@
       const item = document.createElement('div');
       item.classList.add('floating-item');
       item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-      item.style.left = Math.random() * 95 + 'vw';
-      item.style.fontSize = Math.random() * 18 + 14 + 'px';
-      item.style.animationDuration = Math.random() * 3 + 3.5 + 's';
+      item.style.left = Math.random() * 92 + 'vw';
+      item.style.fontSize = Math.random() * 16 + 14 + 'px';
+      item.style.animationDuration = Math.random() * 2.5 + 3.5 + 's';
       document.body.appendChild(item);
 
       setTimeout(() => item.remove(), 5500);
