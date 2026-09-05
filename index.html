@@ -88,14 +88,26 @@
       margin-bottom: 22px;
     }
 
+    /* حاوية الأزرار لمنع التداخل */
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-height: 55px;
+      width: 100%;
+      position: relative;
+    }
+
     button {
-      padding: 12px 28px;
-      font-size: 14px;
+      padding: 12px 20px;
+      font-size: 13.5px;
       font-weight: 600;
       border-radius: 50px;
       border: none;
       cursor: pointer;
       touch-action: manipulation;
+      white-space: nowrap;
     }
 
     .btn-main {
@@ -103,20 +115,22 @@
       color: #ffffff;
       box-shadow: 0 6px 20px rgba(201, 24, 74, 0.4);
       transition: transform 0.15s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .btn-main:active {
       transform: scale(0.96);
     }
 
+    /* تم التعديل إلى relative حتى يقف بجانب الزر الأول ولا يركب فوقه */
     .btn-reject {
       background: rgba(255, 255, 255, 0.08);
       color: #dfd0d4;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      position: absolute;
+      position: relative;
       transition: left 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), top 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
       z-index: 9999;
-      white-space: nowrap;
     }
 
     .deck-container {
@@ -288,7 +302,7 @@
         <strong>فهل يقبل فؤادكِ اعتذاري لنبدأ من جديد؟</strong>
       </p>
 
-      <div style="display:flex; justify-content:center; align-items:center; gap:12px; min-height:55px; position:relative;">
+      <div class="buttons-container">
         <button class="btn-main" id="forgiveBtn">عَفَوْتُ وسامحتك من قلبي ❤️</button>
         <button class="btn-reject" id="refuseBtn">لستُ راضية 😤</button>
       </div>
